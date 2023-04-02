@@ -3,6 +3,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateLogo = require('./lib/generateLogo.js');
+const {Triangle, Square, Circle} = require('./lib/shapes.js');
+
+
+
 
 // This object array is based on the implementation provided by Ryan Spath
 const ColorKeyWords = [
@@ -41,7 +45,7 @@ const questions = [
     {
         type: 'list',
         message: 'Select the color for your logo text.',
-        name: 'color',
+        name: 'textColor',
         choices: ColorKeyWords,
     },
     {
@@ -68,7 +72,7 @@ const questions = [
     {
         type: 'list',
         message: 'Select the color for your logo background.',
-        name: 'background',
+        name: 'shapeColor',
         choices: ColorKeyWords,
     },
     {
@@ -90,14 +94,25 @@ const questions = [
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
       if (err) throw err;
-      console.log('SVG Logo has been successfully created!');
+    console.log('SVG Logo has been successfully created!');
     });
 }
 
 function init() {
     inquirer.prompt(questions).then((data) => {
-      const svg = generateLogo(data);
-      writeToFile('Logo.svg', svg);
+    console.log(data)
+    let newShape
+    if (data.shape === 'square') {
+        newShape = new Square(data.shapeColor)
+    } else if (data.shape === 'circle') {
+        newShape = new Circle(data.shapeColor)
+    } else {
+        newShape = new Triangle(data.shapeColor)
+    }
+    console.log(newShape)
+    const logoShape = newShape.render()
+    const svg = generateLogo(logoShape, data.text, data.textColor);
+    writeToFile('Logo.svg', svg);
     });
 }
 
