@@ -51,8 +51,8 @@ const questions = [
     {
         type: 'input',
         message: 'Please enter your custom hexidecimal color.',
-        name: 'colorHex',
-        when: (answers) => { return answers.color === "custom" },
+        name: 'textHex',
+        when: (answers) => { return answers.textColor === "custom" },
         // Uses regular expression to check if the hex code is a valid hexidecimal color
         validate: function (input) {
             const hex = /^#[0-9a-f]{6}$/ig
@@ -78,8 +78,8 @@ const questions = [
     {
         type: 'input',
         message: 'Please enter your custom hexidecimal color.',
-        name: 'backgroundHex',
-        when: (answers) => { return answers.background === "custom" },
+        name: 'shapeHex',
+        when: (answers) => { return answers.shapeColor === "custom" },
         // Uses regular expression to check if the hex code is a valid hexidecimal color
         validate: function (input) {
             const hex = /^#[0-9a-f]{6}$/ig
@@ -100,8 +100,12 @@ function writeToFile(fileName, data) {
 
 function init() {
     inquirer.prompt(questions).then((data) => {
-    console.log(data)
+    // console.log(data)
     let newShape
+    // if user selected custom color then use the custom hex value as data.shapeColor
+    if (data.shapeColor === 'custom') {
+        data.shapeColor = data.shapeHex
+    }
     if (data.shape === 'square') {
         newShape = new Square(data.shapeColor)
     } else if (data.shape === 'circle') {
@@ -109,9 +113,9 @@ function init() {
     } else {
         newShape = new Triangle(data.shapeColor)
     }
-    console.log(newShape)
+    // console.log(newShape)
     const logoShape = newShape.render()
-    const svg = generateLogo(logoShape, data.text, data.textColor);
+    const svg = generateLogo(logoShape, data.text, data.textColor, data.textHex, data.shapeHex);
     writeToFile('Logo.svg', svg);
     });
 }
