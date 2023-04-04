@@ -63,7 +63,7 @@ To run tests on this project, follow these steps:
   
 ## Project Links
   
-Walkthrough Demo:
+Walkthrough Demo: https://drive.google.com/file/d/1VI78f6jcHeEgi_v72hzSdYtkrLLMDGTU/view?usp=sharing
 
 Github Repository: https://github.com/that-devguy/SVG-Logo-Maker
 
