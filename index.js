@@ -100,7 +100,7 @@ function writeToFile(fileName, data) {
 
 function init() {
     inquirer.prompt(questions).then((data) => {
-    // console.log(data)
+    console.log(data)
     let newShape
     // if user selected custom color then use the custom hex value as data.shapeColor
     if (data.shapeColor === 'custom') {
@@ -113,7 +113,7 @@ function init() {
     } else {
         newShape = new Triangle(data.shapeColor)
     }
-    // console.log(newShape)
+    console.log(newShape)
     const logoShape = newShape.render()
     const svg = generateLogo(logoShape, data.text, data.textColor, data.textHex, data.shapeHex);
     writeToFile('Logo.svg', svg);
