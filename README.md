@@ -22,12 +22,30 @@ JavaScript, Node.js
 ## Installation
 
 Please follow these steps to install and run the project on your local machine:
-Installation instructions are coming in a future update.
+
+1. Install Node.js
+2. Clone the repository
+3. Install dependencies by opening the cloned repository and run the command `npm install` to install all the dependencies required for the generator
+4. Run the generator by running the command `node index` to start the generator and answer the prompts
   
 ## Usage
   
 To use this project, follow these steps:
-Usage instructions are coming in a future update.
+
+1. Clone this repository to your local machine
+2. Follow the installation instructions in the README
+3. Start the application by running `node index` in your terminal
+4. Answer all the prompts to generate your SVG Logo
+
+![SVG Logo Generator Demo Image](/assets/images/inquirer-prompts-demo.JPG)
+> **Note**: Example terminal that shows the list of prompts used to generate the svg file.
+
+![SVG Generated File Demo Image](/assets/images/generated-svg.JPG)
+> **Note**: After the user answers the list of prompts the Logo.svg file will be generated.
+
+![SVG Generated Logo Demo Image](/assets/images/generated-logo.JPG)
+> **Note**: Example Logo.svg result
+
 
 ## Contributing
 
@@ -36,7 +54,12 @@ This project is currently not open for contributions.
 ## Tests
 
 To run tests on this project, follow these steps:
-Testing intructions are coming in a future update.
+
+1. Clone this repository to your local machine
+2. Follow the installation instructions in the README
+3. Run Jest by running `npm test` in your terminal
+
+![Jest Tests Demo Image](/assets/images/jest-tests-demo.JPG)
   
 ## Project Links
   
