@@ -17,7 +17,8 @@ This application takes in user input to generate a logo and save it as an SVG fi
 
 ## Technologies Used
 
-JavaScript, Node.js
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)](https://www.ecma-international.org/ecma-262/)
+[![Node.js](https://img.shields.io/badge/Node.js-v14.15.5-green)](https://nodejs.org/)
 
 ## Installation
 
